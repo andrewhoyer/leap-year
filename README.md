@@ -1,2 +1,3 @@
-# leap-year
-A collection of code snippets in any language to determine leap year.
+# Leap year
+
+A collection of code snippets in many languages to determine leap year.
