@@ -1,2 +1,5 @@
 # General
 .DS_Store
+Rust/leap_year_no_crate/target/
+Rust/leap_year_with_chrono_crate/target/
+**/*.rs.bk
