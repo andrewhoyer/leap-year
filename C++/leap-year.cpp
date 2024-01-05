@@ -14,8 +14,7 @@ bool is_leap_year(int year){
 
 
 int main() {
-  // Testing the functino - just grabbed a bunch
-  // randomly:
+  // Testing the function - just grabbed a bunch randomly:
   std::vector<int> leap_years = {
     1804, 1820, 1844, 1852, 1940,
     1984, 2000, 2008, 2020, 2024, 2252
