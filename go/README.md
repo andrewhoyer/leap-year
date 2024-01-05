@@ -1,6 +1,6 @@
 # Leap Year code in GO
 
-This folder contains leap year code for Go
+This folder contains leap year code for Go.
 
 # Running the file
 
