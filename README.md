@@ -14,4 +14,5 @@ A collection of code snippets in many languages to determine leap year.
 * [OCaml](OCaml)
 * [FORTRAN](FORTRAN)
 * [Rust](Rust)
+* [calculang](calculang)
 
