@@ -1,0 +1,133 @@
+{
+  "cul_functions": {
+    "0_year": {
+      "cul_scope_id": 0,
+      "name": "year",
+      "cul_source_scope_id": 0,
+      "reason": "definition",
+      "loc": {
+        "start": {
+          "line": 2,
+          "column": 20,
+          "index": 30
+        },
+        "end": {
+          "line": 2,
+          "column": 33,
+          "index": 43
+        }
+      },
+      "inputs": [
+        "year_in"
+      ]
+    },
+    "0_year_in": {
+      "cul_scope_id": 0,
+      "name": "year_in",
+      "cul_source_scope_id": 0,
+      "reason": "input definition",
+      "inputs": [
+        "year_in"
+      ]
+    },
+    "0_is_leap_year": {
+      "cul_scope_id": 0,
+      "name": "is_leap_year",
+      "cul_source_scope_id": 0,
+      "reason": "definition",
+      "loc": {
+        "start": {
+          "line": 5,
+          "column": 28,
+          "index": 86
+        },
+        "end": {
+          "line": 6,
+          "column": 61,
+          "index": 153
+        }
+      },
+      "inputs": [
+        "year_in"
+      ]
+    }
+  },
+  "cul_links": [
+    {
+      "to": "0_year",
+      "from": "0_year_in",
+      "reason": "input"
+    },
+    {
+      "to": "0_is_leap_year",
+      "from": "0_year",
+      "reason": "call",
+      "negs": [],
+      "loc": {
+        "start": {
+          "line": 6,
+          "column": 3,
+          "index": 95
+        },
+        "end": {
+          "line": 6,
+          "column": 9,
+          "index": 101
+        }
+      }
+    },
+    {
+      "to": "0_is_leap_year",
+      "from": "0_year",
+      "reason": "call",
+      "negs": [],
+      "loc": {
+        "start": {
+          "line": 6,
+          "column": 22,
+          "index": 114
+        },
+        "end": {
+          "line": 6,
+          "column": 28,
+          "index": 120
+        }
+      }
+    },
+    {
+      "to": "0_is_leap_year",
+      "from": "0_year",
+      "reason": "call",
+      "negs": [],
+      "loc": {
+        "start": {
+          "line": 6,
+          "column": 44,
+          "index": 136
+        },
+        "end": {
+          "line": 6,
+          "column": 50,
+          "index": 142
+        }
+      }
+    }
+  ],
+  "cul_scope_ids_to_resource": {
+    "0": "./is-leap-year.cul.js"
+  },
+  "import_sources_to_resource": {},
+  "cul_input_map": {
+    "0_year": [
+      "year_in"
+    ],
+    "0_year_in": [
+      "year_in"
+    ],
+    "0_is_leap_year": [
+      "year_in"
+    ]
+  },
+  "dot": "digraph {\n  \"0_year\" [cul_scope_id=0,name=year,cul_source_scope_id=0,reason=definition,loc=\"[object Object]\",inputs=year_in,label=\"0_year inputs: year_in\"]\n  \"0_year_in\" [cul_scope_id=0,name=year_in,cul_source_scope_id=0,reason=\"input definition\",inputs=year_in,label=\"0_year_in inputs: year_in\"]\n  \"0_is_leap_year\" [cul_scope_id=0,name=is_leap_year,cul_source_scope_id=0,reason=definition,loc=\"[object Object]\",inputs=year_in,label=\"0_is_leap_year inputs: year_in\"]\n  \"0_year_in\" -> \"0_year\" [value=\"[object Object]\",label=\"input +year_in\"]\n  \"0_year\" -> \"0_is_leap_year\" [value=\"[object Object]\",label=\"call -\"]\n}\n",
+  "memo_map": {}
+}
