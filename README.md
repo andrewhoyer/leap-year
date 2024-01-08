@@ -15,4 +15,5 @@ A collection of code snippets in many languages to determine leap year.
 * [FORTRAN](FORTRAN)
 * [Rust](Rust)
 * [calculang](calculang)
+* [C++](https://github.com/andrewhoyer/leap-year/blob/main/C%2B%2B/leap-year.cpp)
 
