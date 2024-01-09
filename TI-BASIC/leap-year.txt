@@ -1,0 +1,24 @@
+Input Y
+
+If Y-IPart (Y/4)*4=0
+Goto B
+Goto N
+
+Lbl B
+If Y-IPart (Y/100)*100=0
+Goto C
+Goto Y
+
+Lbl C
+If Y-IPart (Y/400)*400=0
+Goto Y
+Goto N
+Stop
+
+Lbl Y
+Disp "IS A LEAP YEAR"
+Stop
+
+Lbl N
+Disp "NOT A LEAP YEAR"
+Stop
