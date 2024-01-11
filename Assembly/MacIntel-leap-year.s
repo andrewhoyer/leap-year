@@ -24,162 +24,112 @@ _main:
     syscall
 
 printresult:
-    ## Print the results
-    movq $0x2000004, %rax          ## System call for sys_write
-    movq $1, %rdi                  ## 1 is stdout
-    leaq yeartext(%rip), %rsi      ## Relative string addr
-    movq $6, %rdx                  ## Len (bytes)
-    syscall
+    ## Print the results-
+    leaq yeartext(%rip), %rsi       ## Relative string addr
+    movq $6, %rdx                   ## Len (bytes)
+    callq print
 
     movq %r13, %rsi
-    callq printnumber		   ## Print Year
+    callq printnumber		        ## Print Year
 
-    movq $0x2000004, %rax          ## System call for sys_write
-    movq $1, %rdi                  ## 1 is stdout
-    leaq resulttext(%rip), %rsi      ## Relative string addr
-    movq $9, %rdx                  ## Len (bytes)
-    syscall
+    leaq resulttext(%rip), %rsi     ## Relative string addr
+    movq $9, %rdx                   ## Len (bytes)
+    callq print
 
     movq %r13, %rsi
     callq printleap
 
-    movq $0x2000004, %rax          ## System call for sys_write
-    movq $1, %rdi                  ## 1 is stdout
-    leaq reasontext(%rip), %rsi      ## Relative string addr
-    movq $9, %rdx                  ## Len (bytes)
-    syscall
+    leaq reasontext(%rip), %rsi     ## Relative string addr
+    movq $9, %rdx                   ## Len (bytes)
+    callq print
 
     movq %r13, %rsi
     callq printreason
 
-    movq $0x2000004, %rax          ## System call for sys_write
-    movq $1, %rdi                  ## 1 is stdout
-    leaq newline(%rip), %rsi      ## Relative string addr
-    movq $2, %rdx                  ## Len (bytes)
-    syscall
+    leaq newline(%rip), %rsi        ## Relative string addr
+    movq $2, %rdx                   ## Len (bytes)
+    callq print
+    retq
+
+calcleap:
+    xorq %rdx, %rdx                ## Clear Remainder
+    movq %rsi, %rax                ## Load year to accum
+    movq $4, %rbx                  ## Div 4
+    divq %rbx                      ## rdx contains remainder
+    movq %rdx, %r10                ## r10 is mod4
+
+    xorq %rdx, %rdx                ## Clear Remainder
+    movq %rsi, %rax                ## Load accum
+    movq $100, %rbx                ## Div 100
+    divq %rbx                      ## rdx contains remainder
+    movq %rdx, %r11                ## r11 is mod100
+
+    xorq %rdx, %rdx                ## Clear Remainder
+    movq %rsi, %rax                ## Load accum
+    movq $400, %rbx                ## Div 400
+    divq %rbx                      ## rdx contains remainder
+    movq %rdx, %r12                ## r12 is mod400
     retq
 
 printleap:
-    xorq %rdx, %rdx 		## Clear Remainder
-    movq %rsi, %rax		## Load year to accum
-    movq $4, %rbx		## Div 4
-    divq %rbx			## rdx contains remainder
-    movq %rdx, %r10		## r10 is mod4
-
-    xorq %rdx, %rdx		## Clear Remainder
-    movq %rsi, %rax		## Load accum
-    movq $100, %rbx		## Div 100
-    divq %rbx			## rdx contains remainder
-    movq %rdx, %r11		## r11 is mod100
-
-    xorq %rdx, %rdx		## Clear Remainder
-    movq %rsi, %rax		## Load accum
-    movq $400, %rbx		## Div 400
-    divq %rbx			## rdx contains remainder
-    movq %rdx, %r12		## r12 is mod400
-
-    testq %r10, %r10		## div4 = 0
-    jnz .notdiv4		## if not move on
-    testq %r11, %r11		## div100 = 0
-    jz .test400			## if it is test 400 year rule
-    callq printtrue		## div4 plain year
+    callq calcleap                 ## get divs
+    testq %r10, %r10		       ## div4 = 0
+    jnz .notdiv4		           ## if not move on
+    testq %r11, %r11		       ## div100 = 0
+    jz .test400			           ## if it is test 400 year rule
+    leaq truetext(%rip), %rsi 
+    movq $4, %rdx 
+    callq print		               ## div4 plain year
     retq
 
     .test400:
-    testq %r12, %r12		## div400 = 0
-    jnz .notdiv4		## if not then fail
-    callq printtrue		## div400 rule
+    testq %r12, %r12		      ## div400 = 0
+    jnz .notdiv4		          ## if not then fail
+    leaq truetext(%rip), %rsi 
+    movq $4, %rdx  
+    callq print	                  ## div400 rule
     retq
 
     .notdiv4:
-    callq printfalse
-    retq
-
-printtrue:
-    movq $0x2000004, %rax          ## System call for sys_write
-    movq $1, %rdi                  ## 1 is stdout
-    leaq truetext(%rip), %rsi      ## Relative string addr
-    movq $4, %rdx                  ## Len (bytes)
-    syscall
-    retq
-
-printfalse:
-    movq $0x2000004, %rax          ## System call for sys_write
-    movq $1, %rdi                  ## 1 is stdout
-    leaq falsetext(%rip), %rsi      ## Relative string addr
-    movq $5, %rdx                  ## Len (bytes)
-    syscall
+    leaq falsetext(%rip), %rsi 
+    movq $5, %rdx  
+    callq print
     retq
 
 printreason:
-    xorq %rdx, %rdx     ## Clear Remainder
-    movq %rsi, %rax     ## Load year to accum
-    movq $4, %rbx       ## Div 4
-    divq %rbx           ## rdx contains remainder
-    movq %rdx, %r10     ## r10 is mod4
-
-    xorq %rdx, %rdx     ## Clear Remainder
-    movq %rsi, %rax     ## Load accum
-    movq $100, %rbx     ## Div 100
-    divq %rbx           ## rdx contains remainder
-    movq %rdx, %r11     ## r11 is mod100
-
-    xorq %rdx, %rdx     ## Clear Remainder
-    movq %rsi, %rax     ## Load accum
-    movq $400, %rbx     ## Div 400
-    divq %rbx           ## rdx contains remainder
-    movq %rdx, %r12     ## r12 is mod400
-
+    callq calcleap          ## get divs
     testq %r10, %r10        ## div4 = 0
-    jnz .notdiv4r        ## if not move on
+    jnz .notdiv4r           ## if not move on
     testq %r11, %r11        ## div100 = 0
-    jz .test400r        ## if it is test 400 year rule
-    callq printdiv4     ## div4 plain year
+    jz .test400r            ## if it is test 400 year rule
+    leaq div4rule(%rip), %rsi 
+    movq $8, %rdx  
+    callq print             ## div4 plain year
     retq
 
     .test400r:
     testq %r12, %r12        ## div400 = 0
-    jnz .div100r           ## if not then fail
-    callq printdiv400     ## div400 rule
+    jnz .div100r            ## if not then fail
+    leaq year400rule(%rip), %rsi  
+    movq $23, %rdx       
+    callq print             ## div400 rule
     retq
 
     .div100r:
-    callq printdiv100
+    leaq year100rule(%rip), %rsi 
+    movq $23, %rdx           
+    callq print
     retq
 
     .notdiv4r:
-    callq printnotdiv4
+    leaq notdiv4rule(%rip), %rsi 
+    movq $12, %rdx  
+    callq print
     retq
 
-printdiv4:
+print:
     movq $0x2000004, %rax          ## System call for sys_write
     movq $1, %rdi                  ## 1 is stdout
-    leaq div4rule(%rip), %rsi      ## Relative string addr
-    movq $8, %rdx                  ## Len (bytes)
-    syscall
-    retq
-
-printnotdiv4:
-    movq $0x2000004, %rax          ## System call for sys_write
-    movq $1, %rdi                  ## 1 is stdout
-    leaq notdiv4rule(%rip), %rsi      ## Relative string addr
-    movq $12, %rdx                  ## Len (bytes)
-    syscall
-    retq
-
-printdiv100:
-    movq $0x2000004, %rax          ## System call for sys_write
-    movq $1, %rdi                  ## 1 is stdout
-    leaq year100rule(%rip), %rsi      ## Relative string addr
-    movq $23, %rdx                  ## Len (bytes)
-    syscall
-    retq
-
-printdiv400:
-    movq $0x2000004, %rax          ## System call for sys_write
-    movq $1, %rdi                  ## 1 is stdout
-    leaq year400rule(%rip), %rsi      ## Relative string addr
-    movq $23, %rdx                  ## Len (bytes)
     syscall
     retq
 
