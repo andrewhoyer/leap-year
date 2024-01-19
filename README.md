@@ -22,3 +22,4 @@ A collection of code snippets in many languages to determine leap year.
 * [Rust](Rust)
 * [Swift](Swift)
 * [TI-BASIC](TI-BASIC)
+* [TypeScript](TypeScript)
