@@ -1,8 +1,8 @@
 # Leap year
 
-A collection of code snippets in many languages to determine leap year.
+A collection of code snippets in many languages to determine if a given year is a leap year.
 
-**Contributors:** Please see CONTRIBUTING file for guidelines.
+**Contributors:** Please see the CONTRIBUTING file for guidelines.
 
 ## Languages
 
