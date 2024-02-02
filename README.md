@@ -6,6 +6,7 @@ A collection of code snippets in many languages to determine if a given year is 
 
 ## Languages
 
+* [Applesoft BASIC](Applesoft BASIC)
 * [Assembly](Assembly)
 * [C++](C%2B%2B)
 * [calculang](calculang)
