@@ -1,0 +1,27 @@
+#!/bin/bash
+
+years=(1900 2000 2023 2024)
+
+for year in ${years[@]}
+do
+  leap=0
+  if [ $((year % 4)) -eq 0 ]; then
+    leap=1
+
+    if [ $((year % 100)) -eq 0 ]; then
+        leap=0
+        if [ $((year % 400)) -eq 0 ]; then
+            leap=1
+        fi
+    fi
+  else
+    leap=0
+  fi
+
+  if [ $((leap)) -eq 1 ]; then
+    echo "$year is a leap year"
+  else
+    echo "$year is NOT a leap year"
+  fi
+  
+done

@@ -8,6 +8,7 @@ A collection of code snippets in many languages to determine if a given year is 
 
 * [Applesoft BASIC](Applesoft%20BASIC)
 * [Assembly](Assembly)
+* [Bash](Bash)
 * [C++](C%2B%2B)
 * [calculang](calculang)
 * [C64BASIC](C64BASIC)
