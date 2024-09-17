@@ -1,8 +1,18 @@
 # Contributing Guidelines
 
+## Hacktoberfest Contributors
+
+If you're here for Hacktoberfest, welcome! Please follow all instructions, guidelines, and examples below, and note the following:
+
+* Only one PR will be approved per account
+* Look at the list of issues which contain a list of languages that need to be added. Add a reply if you are going to work on one of them to avoid duplication.
+* If there is a language you want to add, create an Issue and model it after existing issues. It will be reviewed and the `hacktoberfest` label will be added to it if it meets the requirements.
+* We are looking for serious contributions only. Incomplete, poorly formatted, or other submissions that are low quality will be rejected.
+
 ## New Languages
 
 * Each language should have its own folder, specifically named for the language
+* Check the list of Issues to see if the language has been requested or is being worked on
 * Please check to make sure the language isn't already part of the repo, or contained in an existing pull request
 * Add a link to your folder in the main README file as part of your pull request
 
