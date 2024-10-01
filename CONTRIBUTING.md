@@ -41,9 +41,13 @@ Is 2024 a leap year? True
 
 Your code might also ask for the user to input a year, to which the reply is for that individual year only.
 
-### README
+### README (Language)
 
 Include a README.md that has at least the main header. Any additional explanation you can provide that shows how the code is structured or how to execute it is appreciated.
+
+### README (Main)
+
+Update the README.md file in the root of the project to add a link to your new folder.
 
 ### Optional variations
 
