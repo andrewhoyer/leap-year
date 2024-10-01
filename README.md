@@ -10,6 +10,7 @@ A collection of code snippets in many languages to determine if a given year is 
 * [Assembly](Assembly)
 * [Bash](Bash)
 * [C++](C%2B%2B)
+* [C#](C%23)
 * [calculang](calculang)
 * [C64BASIC](C64BASIC)
 * [COBOL](COBOL)
