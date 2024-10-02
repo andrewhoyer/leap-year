@@ -15,6 +15,7 @@ A collection of code snippets in many languages to determine if a given year is 
 * [C64BASIC](C64BASIC)
 * [COBOL](COBOL)
 * [ColdFusion](ColdFusion)
+* [Dart](Dart)
 * [FORTRAN](FORTRAN)
 * [Go](Go)
 * [Java](Java)
