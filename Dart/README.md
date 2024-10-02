@@ -8,7 +8,7 @@ This Dart program determines whether a given year is a leap year.
 2. Run the program using the following command:
 
 ```bash
-dart run leapYear.dart
+dart run leapYear.dart```
 
 Leap Year Rules
 A year is a leap year if it is divisible by 4,
