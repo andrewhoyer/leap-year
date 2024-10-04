@@ -6,7 +6,7 @@ isLeapYear year
     | otherwise           = False
 
 formatResult :: Integer -> String
-formatResult year = show year ++ " is " ++ (if isLeapYear year then "" else "not ") ++ "a leap year."
+formatResult year = "Is " ++ show year ++ " a leap year? " ++ show (isLeapYear year)
 
 main :: IO ()
 main = do
