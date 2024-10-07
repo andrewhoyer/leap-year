@@ -24,6 +24,7 @@ A collection of code snippets in many languages to determine if a given year is 
 * [OCaml](OCaml)
 * [PHP](PHP)
 * [Python](Python)
+* [R](R)
 * [Ruby](Ruby)
 * [Rust](Rust)
 * [Scratch](Scratch)
