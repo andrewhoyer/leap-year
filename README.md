@@ -21,6 +21,7 @@ A collection of code snippets in many languages to determine if a given year is 
 - [Haskell](Haskell)
 - [Java](Java)
 - [JavaScript](JavaScript)
+- [Lua](Lua)
 - [Objective-C](Objective-C)
 - [OCaml](OCaml)
 - [PHP](PHP)
