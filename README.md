@@ -35,3 +35,4 @@ A collection of code snippets in many languages to determine if a given year is 
 - [Swift](Swift)
 - [TI-BASIC](TI-BASIC)
 - [TypeScript](TypeScript)
+- [Prolog](Prolog)
