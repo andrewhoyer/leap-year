@@ -25,6 +25,7 @@ A collection of code snippets in many languages to determine if a given year is 
 - [Lua](Lua)
 - [Objective-C](Objective-C)
 - [OCaml](OCaml)
+- [Perl](Perl)
 - [PHP](PHP)
 - [Python](Python)
 - [R](R)
