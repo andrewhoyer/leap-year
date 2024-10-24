@@ -26,6 +26,7 @@ A collection of code snippets in many languages to determine if a given year is 
 - [Objective-C](Objective-C)
 - [OCaml](OCaml)
 - [PHP](PHP)
+- [Prolog](Prolog)
 - [Python](Python)
 - [R](R)
 - [Ruby](Ruby)
