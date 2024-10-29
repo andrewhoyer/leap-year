@@ -12,7 +12,7 @@ is.leap.year {
   # year
   year _0; # input param 0
   if ((mod(year,4) != 0), 0, (((mod(year,100)!=0)+(mod(year,400)==0) != 0));
-}
+};
 
 # Aliases for programming styles
 is_leap is.leap.year(__);
