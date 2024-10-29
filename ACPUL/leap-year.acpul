@@ -1,12 +1,12 @@
 ### 20240900 leap.year
 
-# The formula defines is leap year api
+# The formula defines the leap year API
 
 _ @sys.time;
 
 #
 # Define function 'is.leap.year'
-# Returns true if leap
+# Returns true if it is a leap year
 #
 is.leap.year {
   # year
@@ -14,7 +14,7 @@ is.leap.year {
   if ((mod(year,4) != 0), 0, (((mod(year,100)!=0)+(mod(year,400)==0) != 0));
 }
 
-# Aliases programming styles
+# Aliases for programming styles
 is_leap is.leap.year(__);
 isleap is.leap.year(__);
 isLeap is.leap.year(__);
@@ -35,11 +35,11 @@ _ @leap.year;
 # Define date manually
 year = 2024;
 
-# Get date today. Year returns to o2 register
+# Get the current date. Year returns to o2 register
 get.time.date;
 year = o2;
 
-# Call is.leap.year to determine leap year
+# Call is.leap.year to determine if it is a leap year
 leap = is.leap.year(year);
 
 # Show the result below
