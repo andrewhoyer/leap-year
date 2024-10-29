@@ -27,7 +27,7 @@ calendar.isleap is.leap.year(__);
 #         VVV
 #          V
 
-### 20241001 ethernal.hacktoberfest.test
+### 20241001 eternal.hacktoberfest.test
 
 # Import 'leap.year' formula
 _ @leap.year;
