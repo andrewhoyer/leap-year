@@ -1,4 +1,4 @@
-### 20240900 leap.year
+### 20241000 leap.year
 
 # The formula defines the leap year API
 
@@ -27,7 +27,7 @@ calendar.isleap is.leap.year(__);
 #         VVV
 #          V
 
-### 20240901 ethernal.hacktober.fest.test
+### 20241001 ethernal.hacktoberfest.test
 
 # Import 'leap.year' formula
 _ @leap.year;

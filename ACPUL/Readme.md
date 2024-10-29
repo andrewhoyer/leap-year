@@ -8,7 +8,7 @@ NOTE: Use Python syntax highlighting for ACPUL in Sublime Text or Markdown.
 
 To run test from CLI just use `acpul` interpreter with `-i <path>` for the source directory and `-e <formulaId>` with the number of the formula to execute:
 ```sh
-acpul -i . -e 20240900
+acpul -i . -e 20241000
 ```
 
 ## Running tests inside ACPU
@@ -16,7 +16,7 @@ acpul -i . -e 20240900
 Just copy the file to the ACPU project directory and create a new formula node in the bootloader:
 ```py
 # Create by formula number
-node.new.this.ex(r0, 20240901, 0);
+node.new.this.ex(r0, 20241001, 0);
 # Or create by formula name
-node.new.this.ex(r0, NNN(eternal.hacktober.fest.test), 0);
+node.new.this.ex(r0, NNN(eternal.hacktoberfest.test), 0);
 ```
