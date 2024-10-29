@@ -2,6 +2,8 @@
 
 This folder contains code in ACPUL [acpul.org](https://acpul.org/) to determine whether a year is a leap year.
 
+NOTE: Use Python syntax highlighting for ACPUL in Sublime Text or Markdown
+
 ## Running tests from CLI
 
 To running test from CLI just use `acpul` interpreter to run with `-i <path>` to source directory and `-e <formulaId>` with number of formula to execute
@@ -14,7 +16,7 @@ acpul -i . -e 20240900
 
 Just copy file to ACPU project directory and create new formula node in bootloader
 
-```
+```py
 node.new.this.ex(r0, 20240901, 0);
 ```
 
