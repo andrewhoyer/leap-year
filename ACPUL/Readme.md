@@ -20,3 +20,5 @@ node.new.this.ex(r0, 20241001, 0);
 # Or create by formula name
 node.new.this.ex(r0, NNN(eternal.hacktoberfest.test), 0);
 ```
+
+![Is leap year with ACPU](acpu-leap.jpg "eternal.hacktoberfest.test formula view")
