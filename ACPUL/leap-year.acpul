@@ -1,0 +1,88 @@
+### 2024100 leap.year
+
+# The formula defines the leap year API
+
+_ @sys.time;
+
+
+#
+# Define function 'is.leap.year'
+# Returns true if it is a leap year
+#
+is.leap.year {
+  # year
+  year _0; # input param 0
+
+  # Define variants
+  mod4 mod(year,4)==0;
+  nmod100 mod(year,100)!=0;
+  mod400 mod(year,400)==0;
+
+  # Calc a summ
+  0!=((mod4*nmod100)+mod400);
+};
+
+# Aliases for programming styles
+is_leap is.leap.year(__);
+isleap is.leap.year(__);
+isLeap is.leap.year(__);
+calendar.isleap is.leap.year(__);
+
+
+# THE TEST FORMULA BELOW
+#      #########
+#        VVVVV
+#         VVV
+#          V
+
+### 2024101 eternal.hacktoberfest.test
+
+# Import 'leap.year' formula
+_ @leap.year;
+
+# Define date manually
+year = 2024;
+
+# Get the current date. Year returns to o2 register
+get.time.date;
+year = o2;
+
+# Call is.leap.year to determine if it is a leap year
+leap = is.leap.year(year);
+
+# Show the result below
+
+#
+# Display values for UI
+#
+info {
+  # Use UI utilities
+  _ @4; 
+
+  # Show the value
+  
+  lbl0 0; val0 0; ui.value4(lbl0,val0,100,50+0,1, Is.this.year.a.leap.year, leap);
+  lbl0 0; val0 0; ui.value4(lbl0,val0,100,70,1, Check.year, year);
+
+  # More tests and values
+  lbl0 0; val0 0; ui.value4(lbl0,val0,100,100+20,1, Is.y1900.a.leap.year, isleap(1900));
+  lbl0 0; val0 0; ui.value4(lbl0,val0,100,100+40,1, Is.y2000.a.leap.year, isleap(2000));
+  lbl0 0; val0 0; ui.value4(lbl0,val0,100,100+60,1, Is.y2023.a.leap.year, isleap(2023));
+  lbl0 0; val0 0; ui.value4(lbl0,val0,100,100+80,1, Is.y2024.a.leap.year, isleap(2024));
+};
+
+info;
+
+#
+# Output to console for CLI
+#
+console.output {
+  watch(leap);
+};
+
+console.output;
+
+watch(is.leap.year(1900));
+watch(is_leap(2000));
+watch(isLeap(2023));
+watch(calendar.isleap(2024));
