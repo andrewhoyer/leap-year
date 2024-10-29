@@ -1,8 +1,9 @@
-### 20241000 leap.year
+### 2024100 leap.year
 
 # The formula defines the leap year API
 
 _ @sys.time;
+
 
 #
 # Define function 'is.leap.year'
@@ -11,7 +12,14 @@ _ @sys.time;
 is.leap.year {
   # year
   year _0; # input param 0
-  if ((mod(year,4) != 0), 0, (((mod(year,100)!=0)+(mod(year,400)==0) != 0));
+
+  # Define variants
+  mod4 mod(year,4)==0;
+  nmod100 mod(year,100)!=0;
+  mod400 mod(year,400)==0;
+
+  # Calc a summ
+  0!=((mod4*nmod100)+mod400);
 };
 
 # Aliases for programming styles
@@ -27,7 +35,7 @@ calendar.isleap is.leap.year(__);
 #         VVV
 #          V
 
-### 20241001 eternal.hacktoberfest.test
+### 2024101 eternal.hacktoberfest.test
 
 # Import 'leap.year' formula
 _ @leap.year;
@@ -52,13 +60,15 @@ info {
   _ @4; 
 
   # Show the value
-  lbl0 0; val0 0; ui.value4(lbl0,val0,0,0,1, Is.this.year.a.leap.year, leap);
+  
+  lbl0 0; val0 0; ui.value4(lbl0,val0,100,50+0,1, Is.this.year.a.leap.year, leap);
+  lbl0 0; val0 0; ui.value4(lbl0,val0,100,70,1, Check.year, year);
 
   # More tests and values
-  lbl0 0; val0 0; ui.value4(lbl0,val0,0,20,1, Is.y1900.a.leap.year, isleap(1900));
-  lbl0 0; val0 0; ui.value4(lbl0,val0,0,40,1, Is.y2000.a.leap.year, isleap(2000));
-  lbl0 0; val0 0; ui.value4(lbl0,val0,0,60,1, Is.y2023.a.leap.year, isleap(2023));
-  lbl0 0; val0 0; ui.value4(lbl0,val0,0,80,1, Is.y2024.a.leap.year, isleap(2024));
+  lbl0 0; val0 0; ui.value4(lbl0,val0,100,100+20,1, Is.y1900.a.leap.year, isleap(1900));
+  lbl0 0; val0 0; ui.value4(lbl0,val0,100,100+40,1, Is.y2000.a.leap.year, isleap(2000));
+  lbl0 0; val0 0; ui.value4(lbl0,val0,100,100+60,1, Is.y2023.a.leap.year, isleap(2023));
+  lbl0 0; val0 0; ui.value4(lbl0,val0,100,100+80,1, Is.y2024.a.leap.year, isleap(2024));
 };
 
 info;
